@@ -18,6 +18,16 @@ userRouter.post('/signup', async(c)=> {
 
   const body =  await c.req.json()
 
+// this if from the common section after the paakge upload 
+
+//    const { success }=  signupInput.safeParse(body)
+  
+//     if(!success){
+//         c.status(411)
+//         return c.json({
+//             message: "invalid credentials"
+//         })
+//     }
    try {
     const user = await prisma.user.create({
      data: {
@@ -44,6 +54,15 @@ userRouter.post('/signin', async(c)=> {
 }).$extends(withAccelerate())
 
   const body =  await c.req.json()
+  
+//   const { success }=  signinInput.safeParse(body)
+
+//     if(!success){
+//         c.status(411)
+//         return c.json({
+//             message: "invalid credentials"
+//         })
+//     }
 
    const user = await prisma.user.findUnique({
     where: {

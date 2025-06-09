@@ -39,6 +39,15 @@ blogRouter.post('/', async(c)=> {
 
     const userId = c.get('userId');
     const body = await c.req.json()
+
+    //    const { success }=  creteBlogInput.safeParse(body)
+  
+//     if(!success){
+//         c.status(411)
+//         return c.json({
+//             message: "invalid credentials"
+//         })
+//     }
     
     const post = await prisma.post.create({
          data: {
@@ -61,6 +70,15 @@ blogRouter.put('/', async(c)=> {
 
     const userId = c.get('userId');
     const body = await c.req.json()
+
+        //    const { success }=  updateBlogInput.safeParse(body)
+  
+//     if(!success){
+//         c.status(411)
+//         return c.json({
+//             message: "invalid credentials"
+//         })
+//     }
     
     const post = await prisma.post.update({
         where: {
